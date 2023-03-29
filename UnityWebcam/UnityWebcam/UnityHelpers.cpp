@@ -130,13 +130,10 @@ void BlitImage( void* _TextureNativePtr, int _UnityTextureWidth, int _UnityTextu
 			D3D11_TEXTURE2D_DESC desc;
 			d3dtex->GetDesc(&desc);
 			//ctx->UpdateSubresource(d3dtex, 0, nullptr, ifo->imageData, desc.Width * 3, 0);
-			
 			uchar* data = 0;
 			int pitch = 0;
-
 			ctx->UpdateSubresource(d3dtex, 0, nullptr, data, pitch, 0);
 			//delete[] data;
-
 		}
 
 		ctx->Release();
@@ -151,7 +148,7 @@ void BlitImage( void* _TextureNativePtr, int _UnityTextureWidth, int _UnityTextu
 		// update native texture from code
 		if (_TextureNativePtr)
 		{
-			GLuint gltex = (GLuint)(int32_t)(_TextureNativePtr);
+			GLuint gltex = (GLuint)(_TextureNativePtr);
 			glBindTexture(GL_TEXTURE_2D, gltex);
 			int texWidth, texHeight;
 			glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &texWidth);

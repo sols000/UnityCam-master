@@ -24,7 +24,7 @@ typedef void(*FuncPtr)(const char*);
 typedef float(*FuncFloatRetPtr)();
 
 
-extern "C" class UNITY_INTERFACE_EXPORT LogManager
+/*extern "C" */class /*UNITY_INTERFACE_EXPORT*/ LogManager
 {
 	static LogManager* s_instance;;
 	FILE* m_logFile;

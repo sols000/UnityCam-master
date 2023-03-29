@@ -8,7 +8,7 @@
 
 namespace mray
 {
-class UNITY_INTERFACE_EXPORT UnityTextureWrapper :public SharedImageWrapper
+class /*UNITY_INTERFACE_EXPORT*/ UnityTextureWrapper :public SharedImageWrapper
 {
 protected:
 	void* _data;

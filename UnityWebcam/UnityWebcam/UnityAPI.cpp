@@ -31,7 +31,7 @@ extern "C" UNITY_INTERFACE_EXPORT bool SendTexture(void* wrapper, void* TextureI
 }
 
 SharedImageWrapper* wrapper;
-UNITY_INTERFACE_EXPORT bool SendTexture(const unsigned char* data, int width, int height)
+UNITY_INTERFACE_EXPORT bool SendTextureYUV(const unsigned char* data, int width, int height)
 {
 	if (!wrapper) {
 		wrapper = new SharedImageWrapper();
