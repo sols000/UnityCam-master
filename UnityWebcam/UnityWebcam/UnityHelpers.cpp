@@ -8,7 +8,7 @@
 
 using namespace mray;
 
-FuncPtr Debug;
+FuncPtr Debug = nullptr;
 FuncFloatRetPtr GetEngineTimePtr;
 
 void LogMessage(const std::string& msg, ELogLevel level)
@@ -30,25 +30,15 @@ void LogMessage(const std::string& msg, ELogLevel level)
 	printf("%s", m.c_str());
 #endif
 	LogManager::Instance()->LogMessage(m);
-// 	if (Debug)
-// 		Debug(m.c_str());
+ 	if (Debug)
+ 		Debug(m.c_str());
 }
-float GetEngineTime()
-{
-	if (GetEngineTimePtr)
-	{
-		return GetEngineTimePtr();
-	}
-	return 0;
-}
+
 extern "C" UNITY_INTERFACE_EXPORT void mray_SetDebugFunction(FuncPtr f)
 {
 	Debug = f;
 }
-extern "C" UNITY_INTERFACE_EXPORT void mray_SetGetEngineTime(FuncFloatRetPtr f)
-{
-	GetEngineTimePtr = f;
-}
+
 
 LogManager* LogManager::s_instance=0;
 LogManager* LogManager::Instance()
